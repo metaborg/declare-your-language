@@ -4,10 +4,19 @@ What is a Compiler?
 
 This book is about compiler construction. Before we dive into the details of constructing compilers, we need to understand the motivation for doing so.
 
+
+Slides
+-------------------------------------------------------------------------------
+
+
+.. raw:: html
+
+    <iframe src="http://www.slideshare.net/slideshow/embed_code/key/eSJv3up0pUBk4Q" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/secret/eSJv3up0pUBk4Q" title="Declare Your Language: What is a Compiler?" target="_blank">Declare Your Language: What is a Compiler?</a> </strong> from <strong><a href="https://www.slideshare.net/eelcovisser" target="_blank">Eelco Visser</a></strong> </div>
+
 Etymology
 -------------------------------------------------------------------------------
 
-What is that word? According to the `Wiktionary <https://en.wiktionary.org/wiki/compile>`_:
+What is that word? According to the [WiktionaryCompile]_:
 
 **English**
 
@@ -21,8 +30,7 @@ What is that word? According to the `Wiktionary <https://en.wiktionary.org/wiki/
 	5.	(obsolete, transitive) To contain or comprise.
 	6.	(obsolete) To write; to compose.
 
-And where does it come from? Again according to the `Wiktionary
-<https://en.wiktionary.org/wiki/compilo#Latin>`_:
+And where does it come from? Again according to the [WiktionaryCompilo]_:
 
 **Latin**
 
@@ -50,15 +58,15 @@ What is a Compiler?
 In our modern understanding, compilers are translaters. In particular,
 a compiler translates high-level programs to low-level programs
 
-.. image:: images/dyl-introduction/dyl-introduction.024.png
+.. image:: images/dyl-introduction/dyl-introduction.026.png
 
 Let's look at some typical instances. A C compiler translates C programs to object code, i.e. instructions for some computer architecture. Examples of C compilers are GCC and clang.
 
-.. image:: images/dyl-introduction/dyl-introduction.026.png
+.. image:: images/dyl-introduction/dyl-introduction.028.png
 
 A Java compiler translates Java programs to bytecode instructions for the Java Virtual Machine. In the lab for this
 
-.. image:: images/dyl-introduction/dyl-introduction.028.png
+.. image:: images/dyl-introduction/dyl-introduction.030.png
 
 
 Compiler Architecture
@@ -70,11 +78,11 @@ Early compilers were *one-pass* compilers, which look at each line of code only 
 
 Modern compilers do not suffer the harsh resource constraints of early compilers and are typically designed as a sequence of passes or stages each of which completely process a program or program unit. That is each, pass loads (the representation of) the entire program unit in memory.
 
-.. image:: images/dyl-introduction/dyl-introduction.030.png
+.. image:: images/dyl-introduction/dyl-introduction.032.png
 
 Each pass typically changes the representation of the program being compiled. Thus, a compiler can be seen as the composition of a series of translaters, each consuming a program in some representation and producing a program in another representation.
 
-.. image:: images/dyl-introduction/dyl-introduction.032.png
+.. image:: images/dyl-introduction/dyl-introduction.034.png
 
 The typical components of a compiler pipeline are:
 
@@ -90,13 +98,13 @@ Retargeting
 
 The passes that make up a compiler are often divided in two clusters, front-end and back-end:
 
-.. image:: images/dyl-introduction/dyl-introduction.036.png
+.. image:: images/dyl-introduction/dyl-introduction.039.png
 
 The focus of the front-end is on *analysis*, i.e. parsing (syntactic analysis) and type checking (static analysis).
 The focus of the back-end is on *synthesis*, i.e. optimization and code generation.
 The advantage of this division is that front-ends and back-ends can be used in multiple combinations, provided they share a common intermediate language:
 
-.. image:: images/dyl-introduction/dyl-introduction.038.png
+.. image:: images/dyl-introduction/dyl-introduction.043.png
 
 
 Why do we need compilers?
@@ -153,7 +161,7 @@ So, a compiler is a translater. And often that is understood as a translater fro
 - Just-in-time compiler: defers (some aspects of) compilation to run time
 - Hardware compiler: generate configuration for FPGA or integrated circuit
 
-See [CompilerWikipedia] for a more extensive discussion and links.
+See [CompilerWikipedia]_ for a more extensive discussion and links.
 
 Thus, the classical compiler that translates a high-level imperative language to machine code is just one instance of a large family of programs that operate on programs as data.
 
@@ -188,10 +196,10 @@ However, we can do better than that. Instantiating design patterns can be repeti
 Further Reading
 -------------------------------------------------------------------------------
 
-.. [CompThink] Jeanette M. Wing. Computational Thinking Benefits Society. In Social Issues in Computing. January 10, 2014. <http://socialissues.cs.toronto.edu/index.html>
-
-.. [CompilerWikipedia] https://en.wikipedia.org/wiki/Compiler
-
 .. [WiktionaryCompile] https://en.wiktionary.org/wiki/compile
 
 .. [WiktionaryCompilo] https://en.wiktionary.org/wiki/compilo#Latin
+
+.. [CompThink] Jeanette M. Wing. Computational Thinking Benefits Society. In Social Issues in Computing. January 10, 2014. <http://socialissues.cs.toronto.edu/index.html>
+
+.. [CompilerWikipedia] https://en.wikipedia.org/wiki/Compiler
