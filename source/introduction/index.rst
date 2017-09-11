@@ -193,6 +193,11 @@ However, we can do better than that. Instantiating design patterns can be repeti
 - Understanding design of meta-languages and their compilation
 
 
+A First Taste of Compiler Construction
+-------------------------------------------------------------------------------
+
+As a first taste of what we will do in this course, browse through the section 'Language Definition with Spoofax' ([Calc]_), which runs through a complete definition of a little calculator language with the Spoofax Language Workbench.
+
 Further Reading
 -------------------------------------------------------------------------------
 
@@ -202,4 +207,6 @@ Further Reading
 
 .. [CompThink] Jeanette M. Wing. Computational Thinking Benefits Society. In Social Issues in Computing. January 10, 2014. <http://socialissues.cs.toronto.edu/index.html>
 
-.. [CompilerWikipedia] https://en.wikipedia.org/wiki/Compiler
+.. [CompilerWikipedia] <https://en.wikipedia.org/wiki/Compiler>
+
+.. [Calc] Language Definition with Spoofax. A complete example of a Spoofax language definition for a little calculator language. <http://www.metaborg.org/en/latest/source/langdev/meta/lang/tour/index.html>
