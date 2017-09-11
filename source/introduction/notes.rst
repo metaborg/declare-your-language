@@ -1,18 +1,5 @@
 
 
-Phase Separation
--------------------------------------------------------------------------------
-
-- compilers do work before run time so that it does not have to be done at run time
-
-- static (at compile-time): translate high-level code to low-level code
-- at link time: combine components (libraries) of program
-- at run time: execute instructions
-
-
-Expressing Intent
--------------------------------------------------------------------------------
-
 Programming is expression of computational thinking
 - expressing intention at right level of abstraction
 
@@ -65,18 +52,10 @@ Aspects of language definition / phases of compiler
 - dynamic semantics
 
 
-Phase Separation
------------------
-
-- compilers do work before run time so that it does not have to be done at run time
-
-- static (at compile-time): translate high-level code to low-level code
-- at link time: combine components (libraries) of program
-- at run time: execute instructions
 
 
 Other Applications of Compiler Construction
--------------------------------------------------------------------------------
+------------------------------------------------------------
 
 - even if you will not be developing traditional language, study of CC is useful
 
@@ -104,7 +83,7 @@ The role of Computer Science = commodify X (Frank Wood in PLDI keynote)
 
 
 Compiler Correctness
--------------------------------------------------------------------------------
+----------------------------------------
 
 - When is a compiler good?
 - How do we know a compiler is correct?
@@ -114,7 +93,7 @@ Compiler Correctness
 - correctness with respect to specification
 
 Dimensions of Compiler Design
--------------------------------------------------------------------------------
+----------------------------------------
 
 - a compiler is a meta-program
 - meta-program: program that operates on programs as data
@@ -134,7 +113,7 @@ Dimensions of Compiler Design
 - incremental compilation
 
 Interpreters vs Compilers
--------------------------------------------------------------------------------
+----------------------------------------
 
 - phase separation not always so strict
 - compiling at run-time
