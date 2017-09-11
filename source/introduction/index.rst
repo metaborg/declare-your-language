@@ -11,7 +11,9 @@ Slides
 
 .. raw:: html
 
-    <iframe src="http://www.slideshare.net/slideshow/embed_code/key/eSJv3up0pUBk4Q" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/secret/eSJv3up0pUBk4Q" title="Declare Your Language: What is a Compiler?" target="_blank">Declare Your Language: What is a Compiler?</a> </strong> from <strong><a href="https://www.slideshare.net/eelcovisser" target="_blank">Eelco Visser</a></strong> </div>
+    <iframe src="http://www.slideshare.net/slideshow/embed_code/key/eSJv3up0pUBk4Q" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/eelcovisser/declare-your-language-what-is-a-compiler" title="Declare Your Language: What is a Compiler?" target="_blank">Declare Your Language: What is a Compiler?</a> </strong> from <strong><a href="https://www.slideshare.net/eelcovisser" target="_blank">Eelco Visser</a></strong> </div>
+
+`PDF <https://github.com/metaborg/declare-your-language/raw/master/source/introduction/dyl-introduction.pdf>`_
 
 Etymology
 -------------------------------------------------------------------------------
