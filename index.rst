@@ -2,17 +2,39 @@
 Declare Your Language
 ==============================
 
-This is a book about declarative language definition.
+.. toctree::
+   :maxdepth: 2
+
+   source/preface
+   source/introduction/index
 
 .. toctree::
    :maxdepth: 2
-  
-   source/preface
-   source/overview/index
+   :caption: Syntax
+
    source/syntax/index
    source/transformation/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Statics
+
    source/statics/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Dynamics
+
    source/dynamics/index
-   source/generation/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Analysis
+
    source/analysis/index
-    
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Synthesis
+
+   source/generation/index
