@@ -12,7 +12,7 @@ Slides
 
    <iframe src="http://www.slideshare.net/slideshow/embed_code/key/jNIFkSYvFZ8sag" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/eelcovisser/declare-your-language-syntax-definition" title="Declare Your Language: Syntax Definition" target="_blank">Declare Your Language: Syntax Definition</a> </strong> from <strong><a href="https://www.slideshare.net/eelcovisser" target="_blank">Eelco Visser</a></strong> </div>
 
-
+`PDF <https://github.com/metaborg/declare-your-language/raw/master/source/syntax/dyl-syntax-definition.pdf>`_
 
 Further Reading
 -------------------------------------------------------------------------------
