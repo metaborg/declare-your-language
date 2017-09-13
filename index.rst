@@ -7,12 +7,15 @@ Declare Your Language
 
    source/preface
    source/introduction/index
+   source/introduction/declarative-language-definition
 
 .. toctree::
    :maxdepth: 2
    :caption: Syntax
 
-   source/syntax/index
+   source/syntax/syntax-definition
+   source/syntax/formatting
+   source/syntax/parsing
    source/transformation/index
 
 .. toctree::
