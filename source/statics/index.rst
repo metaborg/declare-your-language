@@ -23,3 +23,8 @@ The following video is from a `talk <https://conf.researchr.org/event/curryon-20
 .. raw:: html
 
    <iframe width="560" height="315" src="https://www.youtube.com/embed/0Eg6RDUJGJQ" frameborder="0" allowfullscreen></iframe>
+
+Type Checking
+-------------------------------------------------------------------------------
+
+`PDF <https://github.com/metaborg/declare-your-language/raw/master/source/statics/dyl-6-type-checking.pdf>`_
