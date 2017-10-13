@@ -27,4 +27,9 @@ The following video is from a `talk <https://conf.researchr.org/event/curryon-20
 Type Checking
 -------------------------------------------------------------------------------
 
+
+.. raw:: html
+
+    <iframe src="https://www.slideshare.net/slideshow/embed_code/key/7v3eJ5W7PxnZz" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/eelcovisser/declare-your-language-type-checking" title="Declare Your Language: Type Checking" target="_blank">Declare Your Language: Type Checking</a> </strong> from <strong><a href="https://www.slideshare.net/eelcovisser" target="_blank">Eelco Visser</a></strong> </div>
+
 `PDF <https://github.com/metaborg/declare-your-language/raw/master/source/statics/dyl-6-type-checking.pdf>`_
