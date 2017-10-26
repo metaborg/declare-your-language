@@ -38,3 +38,8 @@ Constraint Resolution I
 
 `PDF <https://github.com/metaborg/declare-your-language/raw/master/source/statics/dyl-7-constraint-resolution-i.pdf>`_
 
+Constraint Resolution II
+-------------------------------------------------------------------------------
+
+`PDF <https://github.com/metaborg/declare-your-language/raw/master/source/statics/dyl-7-constraint-resolution-ii.pdf>`_
+
