@@ -81,7 +81,7 @@
         \draw (s0) edge (A7);
         \draw (s0) edge[out=30, in=190] (M1);
         \draw (Q5) edge (s0);
-        \draw (s3) edge[import, lbl={I}] (Q5);
+        \draw (s3) edge[import, left, lbl={I}] (Q5);
         \draw (A6) edge (s3);
         \draw (M1) edge[export, lbl={I}] (s1);
         \draw (s0) edge[out=-30, in=170] (Q3);
@@ -161,7 +161,7 @@
           \node[scope, left = of f8.center] (s4) {$4$};
           \draw (f8) edge (s4);
           \node[varscope, above = of s4.center] (cs) {$\mathit{cs}$};
-          \draw (s4) edge (cs);
+          \draw (s4) edge[left, lbl={I}] (cs);
           \draw (cs) edge[-,dashed,double] (s1);
 
           \node[draw=none, font={\ttfamily}, every text node part/.style={align=left}] (C) at (-6,-2.2) {
@@ -171,10 +171,11 @@
           };
         \end{tikzpicture}
       \end{center}
-      Note that we kept the variable scope explicit in the graph, and
-      indicated the substitution with the double dashed line. This
-      makes it easier to make the connection with the constraints,
-      than if scope $4$ was directly connected to scope $1$.
+      Note that we kept the scope variable \textit{cs} explicit in the
+      graph, and indicated the substitution with the double dashed
+      line. This makes it easier to make the connection with the
+      constraints, than if scope $4$ was directly connected to scope
+      $1$.
     \end{solution}
   \end{parts}
 
