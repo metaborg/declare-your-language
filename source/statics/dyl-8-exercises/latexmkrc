@@ -1,0 +1,9 @@
+$out_dir = "build";
+
+$tex_src = "\\PassOptionsToPackage{outputdir=$out_dir}{minted}";
+$tex_src .= "\\input{%S}";
+
+$bibtex_use = 2;
+
+$pdf_mode = 1;
+$pdflatex = "texfot pdflatex %O -interaction=nonstopmode -synctex=1 -shell-escape \"$tex_src\"";
