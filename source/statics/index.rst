@@ -45,3 +45,5 @@ Constraint Resolution II
 
 `Exercises PDF <https://github.com/metaborg/declare-your-language/raw/master/source/statics/dyl-8-exercises.pdf>`_
 
+`Exercises + Solutions PDF <https://github.com/metaborg/declare-your-language/raw/master/source/statics/dyl-8-solutions.pdf>`_
+

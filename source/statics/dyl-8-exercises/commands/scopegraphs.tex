@@ -1,0 +1,162 @@
+%% Package imports
+\usepackage{suffix}
+\usepackage{relsize}
+
+%% Calculus
+
+\newcommand{\ns}{\mathit{ns}}
+
+%\newcommand{\lbls}{\mathit{labels}}
+%\newcommand{\lbl}{\mathit{label}}
+%\newcommand{\st}{\mathit{st}}
+%\newcommand{\Lbls}{\mathcal{L}}
+\newcommand{\Lbl}[1]{\mathbf{#1}}
+\newcommand{\RefLbl}{\Lbl{D}}
+\newcommand{\DeclLbl}{\Lbl{D}}
+%\newcommand{\WF}{\text{WF}}
+
+%\newcommand{\Scopes}{\mathcal{S}}
+%\newcommand{\Refs}{\mathcal{R}}
+%\newcommand{\Decls}{\mathcal{D}}
+%\newcommand{\Edges}{\mathcal{E}}
+
+%\newcommand{\DStep}{\mathbf{D}}
+%\newcommand{\EStep}{\mathbf{E}}
+%\newcommand{\NStep}{\mathbf{N}}
+%\newcommand{\RStep}{\mathbf{R}}
+
+%\newcommand{\reaches}{\rightarrowtail}
+%\newcommand{\stepsto}{\rightarrow}
+%\WithSuffix\newcommand\stepsto*{\twoheadrightarrow}
+%\newcommand{\sees}{\mapsto}
+%\newcommand{\resolvesto}{\mapsto}
+
+%\newcommand{\Unknown}{\bot}
+%\newcommand{\Total}{\mathsf{T}}
+%\newcommand{\Partial}{\mathsf{P}}
+%\newcommand{\Res}{\textsc{Res}}
+%\newcommand{\Env}{\textsc{Env}}
+%\newcommand{\IS}{\textsc{IS}}
+%\newcommand{\shadows}{\vartriangleleft}
+%\newcommand{\re}{\mathit{re}}
+
+%\newcommand{\rs}{\mathit{rs}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Graphical Representation %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{tikz}
+\usetikzlibrary{bending,arrows,arrows.meta,shapes,positioning,fit}%
+
+\makeatletter
+
+\newcommand{\fontsizeg}{}
+
+%% Shapes
+
+\newcommand{\sg@occshape}{draw,shape=rectangle}
+\newcommand{\sg@scopeshape}{draw,shape=circle}
+\newcommand{\sg@varscopeshape}{draw,dashed,shape=circle}
+\newcommand{\sg@estepshape}{-{Triangle[length=.5em,angle'=45]}}
+\newcommand{\sg@nstepshape}{-{Triangle[length=.5em,angle'=45,open]}}
+\newcommand{\sg@typeshape}{-{Square[length=.35em]}}
+\newcommand{\sg@resstepshape}{dashed,-{To[length=.5em,angle'=45]}}
+
+%% Inline math commands
+
+\newcommand{\sg@tarrow@impl}[2]{%
+  \mathrel{\tikz[baseline=-0.55ex,%
+                 thelabel/.style={inner sep=0,pos=.35,text depth=.7em},
+                 ]{%
+    \draw[line width=.7pt,#1] (0,0) to node[thelabel] {\scalebox{0.6}{$#2$}} (1.5em,0);
+  }}%
+}
+\newcommand{\sg@tarrow}[2]{\begingroup\edef\sg@temp{\endgroup\noexpand\sg@tarrow@impl{#1}{\noexpand#2}}\sg@temp}
+
+\newcommand{\lblt}[1]{\textsf{#1}}
+\newcommand{\reflblt}{\lblt{R}}
+\newcommand{\decllblt}{\lblt{D}}
+\newcommand{\scopelblt}{\lblt{S}}
+
+\newcommand{\refedget}{\sg@tarrow{\sg@estepshape}{}}
+\newcommand{\decledget}{\sg@tarrow{\sg@estepshape}{}}
+\newcommand{\scopeedget}[1][]{\sg@tarrow{\sg@estepshape}{#1}}
+\newcommand{\importedget}[1][]{\sg@tarrow{\sg@nstepshape}{#1}}
+\newcommand{\assocedget}[1][]{\sg@tarrow{\sg@nstepshape}{#1}}
+\newcommand{\typeedget}{\sg@tarrow{\sg@estepshape}{}}
+
+\newcommand{\occt}[3][]{{}^{\scalebox{0.8}{\textit{#1}}}{#2}_{#3}}
+\newcommand{\reft}[3][]{\occt[#1]{#2}{#3}^{\scalebox{0.6}{\reflblt}}}
+\newcommand{\declt}[3][]{\occt[#1]{#2}{#3}^{\scalebox{0.6}{\decllblt}}}
+\newcommand{\scopet}[1]{#1^{\textsf{\scalebox{0.6}{\scopelblt}}}}
+
+%% Inline graphical commands
+
+\newcommand{\sg@garrow@impl}[3][1.5em]{%
+  \tikz[baseline=-0.55ex,
+        font={\fontsizeg\sffamily},
+        thelabel/.style={inner sep=0,pos=.35,text depth=.7em},
+       ]{
+    \draw[line width=.7pt,#2] (0,0) to node[thelabel] {\scalebox{0.6}{#3}} (#1,0);
+  }%
+}
+\newcommand{\sg@garrow}[2]{\begingroup\edef\sg@temp{\endgroup\noexpand\sg@garrow@impl{#1}{\noexpand#2}}\sg@temp}
+
+\newcommand{\refedgeg}{\sg@garrow{\sg@estepshape}{}}
+\newcommand{\decledgeg}{\sg@garrow{\sg@estepshape}{}}
+\newcommand{\scopeedgeg}[1][]{\sg@garrow{\sg@estepshape}{#1}}
+\newcommand{\importedgeg}[1][]{\sg@garrow{\sg@nstepshape}{#1}}
+\newcommand{\assocedgeg}[1][]{\sg@garrow{\sg@nstepshape}{#1}}
+\newcommand{\resedgeg}[1][]{\sg@garrow{\sg@resstepshape}{#1}}
+\newcommand{\typeedgeg}[1][]{\sg@garrow{\sg@typeshape}{#1}}
+
+\newcommand{\sg@node@impl}[2]{%
+  \tikz[baseline=-0.55ex,
+        font=\fontsizeg,
+        thenode/.style = {minimum width=1.3em, minimum height=1.3em,
+                          inner xsep=.1em, inner ysep=0, outer sep=0,
+                          text depth=0, text height=.5em},
+       ]{
+    \node[thenode,#1] (enclosing) {\smash{$#2$}};
+  }%
+}
+\newcommand{\sg@node}[2]{\begingroup\edef\sg@temp{\endgroup\noexpand\sg@node@impl{#1}{\noexpand#2}}\sg@temp}
+
+\newcommand{\occg}[3][]{\sg@node{\sg@occshape}{\occt[#1]{#2}{#3}}}
+\let\refg\occg
+\let\declg\occg
+\newcommand{\scopeg}[1]{\sg@node{\sg@scopeshape}{#1}}
+\newcommand{\varscopeg}[1]{\sg@node{\sg@varscopeshape}{#1}}
+
+\makeatother
+
+%% Tikz styles
+
+\tikzset{%
+  scopegraph/.style = {%
+    %% node styles
+    every node/.style = {draw, minimum size=1.5em},
+    scope/.style = {shape=circle},
+    varscope/.style = {scope, dashed},
+    occurrence/.style = {shape=rectangle},
+    decl/.style = {occurrence},
+    ref/.style = {occurrence},
+    superscript label/.style = {},%
+    superscript/.style={label={[superscript label,minimum size=0,inner sep=.2ex]45:{\smaller[2]\textit{##1}}}},%
+    %% arrow styles
+    direct arrow/.style = {-{Triangle[length=.5em,angle'=60,flex']}},
+    named arrow/.style = {-{Triangle[length=.5em,angle'=60,open,flex']}},
+    importref arrow/.style = {{Triangle[length=.5em,angle'=60,flex']}-{Triangle[length=.5em,angle'=60,open,flex']}},
+    resolve arrow/.style = {-{To[length=.5em,angle'=60,flex']}},
+    type arrow/.style = {-{Square[length=.35em,flex']}},
+    %% edge styles
+    every edge/.style = {draw, direct arrow},
+    import/.style = {named arrow},
+    export/.style = {named arrow},
+    type/.style = {type arrow},
+    importref/.style = {importref arrow},%
+    resolve/.style = {dashed, resolve arrow, shorten <= .2em, shorten >= .2em},%
+    lbl/.style = {edge node = {node[draw=none,fill=white,minimum size=0,inner sep=.2ex, pos=.45] {\smaller[2]\textsf{##1}}}},%
+  },%
+}
