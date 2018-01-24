@@ -1,0 +1,123 @@
+\documentclass[a4paper, leqno]{exam}
+
+\usepackage{graphicx}
+\usepackage{palatino}
+\usepackage{fancyvrb}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{color}
+\usepackage{alltt}
+
+\pagestyle{headandfoot}
+
+\header{\textsf{IN4303: Compiler Construction}}{\textsf{\textsc{Exercises}}}{\textsf{Jan 24, 2018}}
+\headrule
+
+\footer{}{\textsf{Page \thepage\ of \numpages}}{}
+\footrule
+
+\begin{document}
+\qformat{\textbf{Exercise \thequestion:} \thequestiontitle\hfill}
+
+\begin{questions}
+
+\fvset{frame=lines}
+\fvset{framesep=8pt}
+\begin{Verbatim}
+l1: if y = 0 goto l2
+    q := x / y
+    t := q * y
+    r := x - t
+    x := y
+    y := r
+    goto l1
+l2: return x
+\end{Verbatim}
+
+\titledquestion{Control flow}
+\begin{parts}
+\part
+Construct the control flow graph for the intermediate code above.
+\begin{solution}
+By line number:
+\begin{Verbatim}
+1 -> 2 -> 3 -> 4 -> 6 -> 7 -> 1
+1 -> 8
+\end{Verbatim}
+\end{solution}
+\part
+Show the control flow graph with basic blocks.
+\begin{solution}
+\begin{Verbatim}
+1 -> [2,3,4,5,6,7] -> 1
+1 -> 8
+\end{Verbatim}
+\end{solution}
+\end{parts}
+
+\titledquestion{Live variable analysis}
+\begin{parts}
+\part
+When is a variable considered live?
+
+\begin{solution}
+A variable is live if it holds a value that may be observed (read) in the future of the program. The writer of the liveness analysis defines which variables are live at the end of the control flow of a program. 
+
+\textbf{Alternative wording:} A variable is live in a program between the point where it was last assigned to and the point where it is read. A variable is also live between the start of the program and the first read of the variable is there is no assignment of that variable in between. The writer of the liveness analysis defines which variables are live at the end of the control flow of a program. 
+\end{solution}
+
+\part
+What is the information that live variables analysis calculates and associates with each control flow graph node?
+
+\begin{solution}
+A set of names of variables that are live at that point in the program. 
+\end{solution}
+
+\part
+Is live variable analysis a \emph{may} or \emph{must} analysis? 
+
+\begin{solution}
+It is a \emph{may} analysis.
+\end{solution}
+
+\fvset{frame=lines}
+\fvset{framesep=8pt}
+\begin{Verbatim}
+int x = 0;
+if(y > 0) {
+  x = 1;
+} else {
+  y = 0;
+}
+return x;
+\end{Verbatim}
+
+\part
+Given the above MiniJava method body, provide the live variables analysis result per line of code. Explain where the analysis result demonstrates the analysis property (may or must) you answered above. 
+
+\begin{solution}
+In this program variable \Verb+x+ is live after initialisation despite being immediately reassigned in one branch of the \Verb+if+ statement. There is a path where \Verb+x == 0+ is observed, namely when \Verb+y > 0+. 
+\fvset{frame=lines}
+\fvset{framesep=8pt}
+\begin{Verbatim}
+            // (in , out)
+int x = 0;  // {y}, {x,y}
+if(y > 0) { // {x,y} , {x} \/ {}
+  x = 1;    // {} , {x}
+} else {    //
+  y = 0;    // {x} , {x}
+}           // 
+return x;   // {x} , {x}
+\end{Verbatim}
+\end{solution}
+
+\part
+What information does live variables expose at assignments, and how can this be used for optimisation?
+
+\begin{solution}
+At an assignment when the variable that's assigned isn't live, that assignment is not observed by the rest of the program, and is therefore dead code. This dead code can be eliminated in an optimisation step. 
+\end{solution}
+\end{parts}
+
+\end{questions}
+
+\end{document}
